@@ -9,6 +9,36 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 		<script type="text/javascript">
+
+			function calcular() {
+				var operacao = document.getElementById('operacao').value;
+				var numero1 = document.getElementById('numberOne').value;
+				var numero2 = document.getElementById('numberTwo').value;
+				
+				alert(operacao);
+				alert(numero1);
+				alert(numero2);
+
+				switch (operacao) {
+					case 1:
+						document.getElementById('result').value =  numero1 - numero2;
+						
+					case 2:
+						document.getElementById('result').value =  numero1 + numero2;
+						
+					case 3:
+						document.getElementById('result').value = numero1 * numero2;
+						
+					case 4:
+						document.getElementById('result').value = numero1 / numero2;
+						
+					default:
+						alert('A opção selecionado é invalida');
+						return false;
+						
+				}
+
+			}
 			
 		</script>
 	</head>
@@ -24,11 +54,11 @@
 
 			<div class="row">
 				<div class="col-md-4">
-					<input type="text" class="form-control" placeholder="Digite um número" />
+					<input id="numberOne" type="text" class="form-control" placeholder="Digite um número" />
 				</div>
 
 				<div class="col-md-4">
-					<select class="form-control">
+					<select class="form-control" id ="operacao">
 						<option value="">--Selecione uma operação</option>
 						<option value="1">Subtração</option>
 						<option value="2">Adição</option>
@@ -38,7 +68,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<input type="text" class="form-control" placeholder="Digite um número"/>
+					<input id="numberTwo" type="text" class="form-control" placeholder="Digite um número"/>
 				</div>
 			</div>
 
@@ -50,14 +80,14 @@
 				<div class="col-md-4"></div>
 
 				<div class="col-md-4">
-					<button type="button" class="btn btn-lg btn-primary pull-right">Calcular</button>
+					<button type="button" class="btn btn-lg btn-primary pull-right" onclick="calcular()">Calcular</button>
 				</div>
 			</div>
 
 			<hr />
 
 			<div class="well">
-				Resultado: <input type="text" class="form-control" readonly/>
+				Resultado: <input type="text" class="form-control" readonly id="result"/>
 			</div>
 		</div>
 	</body>
