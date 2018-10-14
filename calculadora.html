@@ -15,30 +15,46 @@
 				var numero1 = document.getElementById('numberOne').value;
 				var numero2 = document.getElementById('numberTwo').value;
 				
+
 				alert(operacao);
-				alert(numero1);
-				alert(numero2);
 
 				switch (operacao) {
-					case 1:
+					case '1':
 						document.getElementById('result').value =  numero1 - numero2;
+						break;
 						
-					case 2:
+					case '2':
 						document.getElementById('result').value =  numero1 + numero2;
-						
-					case 3:
+						break;
+					case '3':
 						document.getElementById('result').value = numero1 * numero2;
-						
-					case 4:
+						break;
+					case '4':
 						document.getElementById('result').value = numero1 / numero2;
-						
+						break;
 					default:
 						alert('A opção selecionado é invalida');
 						return false;
-						
 				}
-
 			}
+			function validaValorNumero1() {
+				var numero1 = document.getElementById('numberOne').value;
+
+				if (numero1 == null || numero1 == '') {
+					alert('Favor digitar um número válido');
+				}
+			}
+
+			function validaValorNumero2() {
+				var numero2 = document.getElementById('numberTwo').value;
+
+				if (numero2 == null || numero2 == '') {
+					alert('Favor digitar um número válido');
+					return false;
+				}
+			}
+
+			
 			
 		</script>
 	</head>
@@ -54,7 +70,7 @@
 
 			<div class="row">
 				<div class="col-md-4">
-					<input id="numberOne" type="text" class="form-control" placeholder="Digite um número" />
+					<input id="numberOne" type="text" class="form-control" placeholder="Digite um número" onblur="validaValorNumero1()" />
 				</div>
 
 				<div class="col-md-4">
@@ -68,7 +84,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<input id="numberTwo" type="text" class="form-control" placeholder="Digite um número"/>
+					<input id="numberTwo" type="text" class="form-control" placeholder="Digite um número" onblur="validaValorNumero2()"/>
 				</div>
 			</div>
 
@@ -87,7 +103,7 @@
 			<hr />
 
 			<div class="well">
-				Resultado: <input type="text" class="form-control" readonly id="result"/>
+				Resultado: <input id="result" type="text" class="form-control" readonly />
 			</div>
 		</div>
 	</body>
